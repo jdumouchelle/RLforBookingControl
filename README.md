@@ -1,6 +1,8 @@
 # Reinforcement Learning for Freight Booking Control Problems
 
-Implementation of "Reinforcement Learning for Freight Booking Control Problems" ([https://link.springer.com/article/10.1057/s41272-023-00459-1](https://link.springer.com/article/10.1057/s41272-023-00459-1)).  Note that the code and data will be added within a few weeks.
+Implementation of "Reinforcement Learning for Freight Booking Control Problems" ([https://link.springer.com/article/10.1057/s41272-023-00459-1](https://link.springer.com/article/10.1057/s41272-023-00459-1)).  
+
+The main codebase has been added to `rm/`.  Documentation, notebooks, and data/models will be uploaded shortly.  
 
 ## Reference
 
