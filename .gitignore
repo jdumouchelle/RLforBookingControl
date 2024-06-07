@@ -1,3 +1,16 @@
+# added files to ignore
+*.sol
+*.lp
+*.mps
+*.pkl
+*.pt
+*.vrp
+*.log
+rm/envs/vrp/vrp_solver_filo/repos/*
+rm/envs/vrp/vrp_solver_filo/filo
+table.dat
+other_datasets/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
