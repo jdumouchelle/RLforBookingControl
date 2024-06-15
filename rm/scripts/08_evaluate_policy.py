@@ -1,6 +1,7 @@
 import sys
 sys.path.append('../../envs/vrp/')
 
+import os
 import copy
 import time
 import pickle
@@ -100,6 +101,14 @@ def init_rllib_policy(args, cfg):
  
     best_checkpoint = res["best_checkpoint"]
 
+    # exception handling incase running DQN model on different device
+    if not os.path.exists(best_checkpoint):
+        print(f"Modifying checkpoint dir to {args.data_dir}.")
+        print(f"  Note that this may not work for relative paths, absolute paths are preferred.")
+
+        best_checkpoint = best_checkpoint.split("data/")[-1]
+        best_checkpoint = args.data_dir + best_checkpoint
+
     agent.restore(best_checkpoint)
     agent.offline_time = res["tr_stats"][-1]["time"]
 
@@ -156,14 +165,6 @@ def evaluate_vrp_policy(args, cfg, env, policy):
     elif "blp" in args.policy:
         results = pe.evaluate_baseline(policy)
         results["offline_time"] = policy.offline_time
-
-    # elif "dp" == args.policy:
-    #     results = pe.evaluate_dp(policy, use_exact=True)
-    #     results["offline_time"] = policy.offline_time
-
-    # elif "dp" in args.policy:
-    #     results = pe.evaluate_dp(policy, use_exact=False)
-    #     results["offline_time"] = policy.offline_time
 
     return results
 
@@ -248,7 +249,7 @@ if __name__ == "__main__":
     
     parser.add_argument('--policy', type=str, help='Policies to evaluate')
     parser.add_argument('--use_threshold', type=int, default=1, help='Indcator to use threshold for policy evaluation for DQN.')
-    parser.add_argument('--n_iters', type=int, default=100, help='Number of episodes to evaluate over.')
+    parser.add_argument('--n_iters', type=int, default=1000, help='Number of episodes to evaluate over.')
     parser.add_argument('--seed', type=int, default=0, help='Seed.')
 
     # args for n_final_obs experiements in appendix
