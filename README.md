@@ -2,7 +2,7 @@
 
 Implementation of "Reinforcement Learning for Freight Booking Control Problems" ([https://link.springer.com/article/10.1057/s41272-023-00459-1](https://link.springer.com/article/10.1057/s41272-023-00459-1)).  
 
-The main codebase has been added to `rm`.  Notebooks and data/models have been added.  Documentation is coming soon.
+The main codebase has been added to `rm`.  Notebooks, data, and trained models have been added.  Documentation is coming soon.
 
 ## Reference
 
